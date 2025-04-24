@@ -37,10 +37,19 @@ public class ArrayStack {
 	}
 
 	public int peek() {
-		return top;
-	}
+        if (top != 0) {
+            return stackArray[top - 1]; // 削除しないで参照するだけ
+        } else {
+            return -1;
+        }
+    }
 
-	public int search(int x) {
-		return 0;
-	}
+    public int search(int x) {
+        for (int i = top - 1; i >= 0; i--) {
+            if (stackArray[i] == x) {
+                return top - i; // 上からの距離
+            }
+        }
+        return -1;
+    }
 }
